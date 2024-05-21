@@ -1,6 +1,6 @@
-import { ChangeEvent, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { ChangeEvent, useContext, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 export const Login = () => {
   const auth = useContext(AuthContext);
@@ -26,59 +26,28 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-slate-100 py-6 sm:py-12">
-        <div className="relative bg-white px-5 pb-8 pt-10 shadow-2xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-          <div className="mx-auto max-w-md">
-            <img
-              src="https://b2bit.company/wp-content/uploads/2022/10/LOGOTIPO-1.png"
-              className="m-8 h-20 invert"
-              alt="Tailwind Play"
-            />
-            <div className="mb-4">
-              <label
-                className="mb-2 block text-sm font-bold text-gray-700"
-                htmlFor="username"
-              >
-                {" "}
-                E-mail{" "}
-              </label>
-              <input
-                className="w-full appearance-none rounded border bg-slate-100 px-3 py-2 leading-tight text-gray-700"
-                type="text"
-                placeholder="@gmail.com"
-                value={email}
-                onChange={handleEmailInput}
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                className="mb-2 block text-sm font-bold text-gray-700"
-                htmlFor="password"
-              >
-                {" "}
-                Password{" "}
-              </label>
-              <input
-                className="focus: mb-3 w-full appearance-none rounded border bg-slate-100 px-3 py-2 font-bold leading-tight text-gray-700"
-                id="password"
-                type="password"
-                value={password}
-                onChange={handlePasswordInput}
-                placeholder="****************"
-              />
-            </div>
-            <div className="items-center; flex">
-              <button
-                className="w-full rounded bg-blue-900 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-                type="button"
-                onClick={handleLogin}
-              >
-                Sign In
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="App">
+      <div className="b2bit">
+        <img src={process.env.PUBLIC_URL + "/b2bit-escuro.svg"} alt="Logo da B2Bit" className="logo"/>
+        <p>E-mail</p>
+        <input
+          type="text"
+          value={email}
+          onChange={handleEmailInput}
+          placeholder="@gmail.com"
+          className="form"
+        />
+        <p>Password</p>
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordInput}
+          placeholder="****************"
+          className="form"
+        />
+        <button onClick={handleLogin} className="button">
+          <Link className="button" to="/private">Sign In</Link>
+        </button>
       </div>
     </div>
   );
