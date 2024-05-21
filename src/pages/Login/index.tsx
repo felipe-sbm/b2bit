@@ -18,7 +18,7 @@ export const Login = () => {
     if (email && password) {
       const isLogged = await auth.signIn(email, password);
       if (isLogged) {
-        navigate("/");
+        navigate("/private");
       } else {
         alert("Tem algo de errado aqui bixo, tenta de novo... :/");
       }
