@@ -16,4 +16,13 @@ export const useApi = () => ({
     const response = await api.post("/login/", { email, password });
     return response.data;
   },
+
+  getProfile: async () => {
+    const response = await api.get('/profile/', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+      }
+    });
+    return response.data;
+  }
 });

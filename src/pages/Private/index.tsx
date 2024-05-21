@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 export const Private = () => {
@@ -7,6 +7,10 @@ export const Private = () => {
     await auth.signOut();
     window.location.reload();
   };
+  useEffect(() => {
+    auth.getProfile();
+  },[]);
+
   return (
     <div>
       <header className="header">
@@ -37,7 +41,7 @@ export const Private = () => {
             <p>
               Your <strong>E-mail</strong>
             </p>
-            <input className="form" placeholder={auth.user?.email} readOnly />,
+            <input className="form" placeholder={auth.user?.email} readOnly />
           </div>
         </div>
       </div>
