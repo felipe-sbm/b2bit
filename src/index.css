@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: nunito, sans-serif;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #F1F6FB;
 }
 
 .b2bit {
@@ -14,9 +14,16 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 28rem;
-  width: 23rem;
-  padding-left: 2em;
+  /* height: 23rem; */
+  padding: 1.5rem 0;
+  width: 25rem;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
 }
 
 .logo {
@@ -25,8 +32,8 @@ body {
 }
 
 .img {
-  margin: 0rem 0rem 2rem 7rem;
-  height: 7rem;
+  height: 58px;
+  width: 56px;
   border-radius: 8px;
 }
 
@@ -81,10 +88,14 @@ body {
 
 .teimoso {
   text-align: center;
-  margin-right: 2.2rem;
 }
 .header {
   background-color: #ffffff;
   height: 5rem;
+  width: 100%;
+}
+
+.outputs {
+  padding: 0 2rem;
   width: 100%;
 }

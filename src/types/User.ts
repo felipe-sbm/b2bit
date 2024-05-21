@@ -3,5 +3,8 @@ export type User = {
     name: string;
     email: string;
     password?: string;
-    photoURL?: string;
+    avatar?: {
+        id: number;
+        high: string;
+    };
 }

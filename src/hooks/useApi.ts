@@ -1,24 +1,19 @@
-import axios from 'axios';
+import axios from "axios";
+
+const authToken = localStorage.getItem("authToken");
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API,
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json;version=v1_web'
+    "Content-Type": "application/json",
+    Accept: "application/json;version=v1_web",
+    Authorization: authToken ? `Bearer ${authToken}` : "",
   },
 });
 
 export const useApi = () => ({
-  validateToken: async (token: string) => {
-    const response = await api.post('/validate/', { token });
-    return response.data;
-  },
   signin: async (email: string, password: string) => {
-    const response = await api.post('/login/', { email, password });
-    return response.data;
-  },
-  logout: async () => {
-    const response = await api.post('/logout/');
+    const response = await api.post("/login/", { email, password });
     return response.data;
   },
 });
